@@ -27,19 +27,19 @@ public partial class PlayerBaseController : CharacterBody3D
 	private Vector2 movementInputVectorRaw;
 
 // Input strings
-	private string InputJump;
-	private string InputMoveLeft;
-	private string InputMoveRight;
-	private string InputMoveUp;
-	private string InputMoveDown;
-	private string InputCameraDown;
-	private string InputCameraUp;
-	private string InputCameraRight;
-	private string InputCameraLeft;
-	private string InputOptionUp;
-	private string InputOptionDown;
-	private string InputOptionLeft;
-	private string InputOptionRight;
+	private StringName InputJump;
+	private StringName InputMoveLeft;
+	private StringName InputMoveRight;
+	private StringName InputMoveUp;
+	private StringName InputMoveDown;
+	private StringName InputCameraDown;
+	private StringName InputCameraUp;
+	private StringName InputCameraRight;
+	private StringName InputCameraLeft;
+	private StringName InputOptionUp;
+	private StringName InputOptionDown;
+	private StringName InputOptionLeft;
+	private StringName InputOptionRight;
 
 // STATIC VARIABLES
 	private static float CameraRotateToLookUpLimit = -70.0f;
@@ -74,19 +74,19 @@ public partial class PlayerBaseController : CharacterBody3D
 
 	void SetupInputStrings()
 	{
-		InputJump = "Jump_" + PlayerID.ToString();
-		InputMoveLeft = "MoveLeft_" + PlayerID.ToString();
-		InputMoveRight = "MoveRight_" + PlayerID.ToString();
-		InputMoveUp = "MoveUp_" + PlayerID.ToString();
-		InputMoveDown = "MoveDown_" + PlayerID.ToString();
-		InputCameraDown = "CameraDown_" + PlayerID.ToString();
-		InputCameraUp = "CameraUp_" + PlayerID.ToString();
-		InputCameraRight = "CameraRight_" + PlayerID.ToString();
-		InputCameraLeft = "CameraLeft_" + PlayerID.ToString();
-		InputOptionUp = "OptionUp_" + PlayerID.ToString();
-		InputOptionDown = "OptionDown_" + PlayerID.ToString();
-		InputOptionLeft = "OptionLeft_" + PlayerID.ToString();
-		InputOptionRight = "OptionRight_" + PlayerID.ToString();
+		InputJump        = "Jump_"        + PlayerID;
+		InputMoveLeft    = "MoveLeft_"    + PlayerID;
+		InputMoveRight   = "MoveRight_"   + PlayerID;
+		InputMoveUp      = "MoveUp_"      + PlayerID;
+		InputMoveDown    = "MoveDown_"    + PlayerID;
+		InputCameraDown  = "CameraDown_"  + PlayerID;
+		InputCameraUp    = "CameraUp_"    + PlayerID;
+		InputCameraRight = "CameraRight_" + PlayerID;
+		InputCameraLeft  = "CameraLeft_"  + PlayerID;
+		InputOptionUp    = "OptionUp_"    + PlayerID;
+		InputOptionDown  = "OptionDown_"  + PlayerID;
+		InputOptionLeft  = "OptionLeft_"  + PlayerID;
+		InputOptionRight = "OptionRight_" + PlayerID;
 	}
 
 	public override void _PhysicsProcess(double delta)
