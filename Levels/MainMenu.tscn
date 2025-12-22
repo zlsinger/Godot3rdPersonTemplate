@@ -1,0 +1,99 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0h0epuijwrl0"]
+
+[ext_resource type="Script" uid="uid://dhwosg367ttjj" path="res://Scripts/UI/MainMenu.cs" id="1_yw2i3"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_yw2i3")
+
+[node name="ButtonManager" type="Control" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="1Player" type="Button" parent="ButtonManager"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -818.0
+offset_top = -473.0
+offset_right = -618.0
+offset_bottom = -423.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1 Player"
+
+[node name="2Player" type="Button" parent="ButtonManager"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -818.0
+offset_top = -398.0
+offset_right = -618.0
+offset_bottom = -348.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "2 Player"
+
+[node name="3Player" type="Button" parent="ButtonManager"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -818.0
+offset_top = -323.0
+offset_right = -618.0
+offset_bottom = -273.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "3 Player"
+
+[node name="4Player" type="Button" parent="ButtonManager"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -818.0
+offset_top = -248.0
+offset_right = -618.0
+offset_bottom = -198.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "4 Player"
+
+[node name="Quit" type="Button" parent="ButtonManager"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -818.0
+offset_top = -173.0
+offset_right = -618.0
+offset_bottom = -123.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+
+[connection signal="button_down" from="ButtonManager/1Player" to="." method="_1PlayerButtonDown"]
+[connection signal="button_down" from="ButtonManager/2Player" to="." method="_2PlayerButtonDown"]
+[connection signal="button_down" from="ButtonManager/3Player" to="." method="_3PlayerButtonDown"]
+[connection signal="button_down" from="ButtonManager/4Player" to="." method="_4PlayerButtonDown"]
+[connection signal="button_down" from="ButtonManager/Quit" to="." method="_quitButtonDown"]

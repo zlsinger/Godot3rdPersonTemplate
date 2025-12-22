@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bbxkmlotpd408"]
+
+[ext_resource type="Texture2D" uid="uid://deu3s6bidt41u" path="res://Materials/CharacterMaterials/CharacterTextures/FayeTexture.png" id="1_3xko6"]
+
+[resource]
+albedo_texture = ExtResource("1_3xko6")
+distance_fade_mode = 2
+distance_fade_max_distance = 0.5

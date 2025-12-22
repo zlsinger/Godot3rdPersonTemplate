@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=3 uid="uid://d222fonm78jeb"]
+
+[ext_resource type="Script" uid="uid://j00qremaef1m" path="res://Scripts/PlayerScripts/PlayerScreenManager.cs" id="1_aq03c"]
+[ext_resource type="PackedScene" uid="uid://dgew383ujvnvv" path="res://Prefabs/PlayerPrefabs/PlayerBase.tscn" id="1_ww7oa"]
+
+[node name="3PlayerScreen" type="Node3D" node_paths=PackedStringArray("Players")]
+script = ExtResource("1_aq03c")
+Players = [NodePath("GridContainer/SubViewportContainer/SubViewport/PlayerBase"), NodePath("GridContainer/SubViewportContainer2/SubViewport/PlayerBase"), NodePath("GridContainer2/SubViewportContainer/SubViewport/PlayerBase")]
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+columns = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="GridContainer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(958, 540)
+render_target_update_mode = 4
+
+[node name="PlayerBase" parent="GridContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_ww7oa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.95, 0, 0)
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="GridContainer/SubViewportContainer2"]
+handle_input_locally = false
+size = Vector2i(958, 540)
+render_target_update_mode = 4
+
+[node name="PlayerBase" parent="GridContainer/SubViewportContainer2/SubViewport" instance=ExtResource("1_ww7oa")]
+PlayerID = 1
+
+[node name="GridContainer2" type="GridContainer" parent="."]
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="GridContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="GridContainer2/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1920, 539)
+render_target_update_mode = 4
+
+[node name="PlayerBase" parent="GridContainer2/SubViewportContainer/SubViewport" instance=ExtResource("1_ww7oa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65, 0, 0)
+PlayerID = 2

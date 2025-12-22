@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgew383ujvnvv"]
+
+[ext_resource type="Script" uid="uid://ckn5ibdltxgsg" path="res://Scripts/PlayerScripts/PlayerBaseController.cs" id="1_ccsej"]
+[ext_resource type="PackedScene" uid="uid://wpu6fgg5q602" path="res://3DAssets/Characters/fayeScene.tscn" id="2_4on5i"]
+[ext_resource type="Texture2D" uid="uid://dhyb8xvgp8psb" path="res://Materials/Textures/BlobShadow.png" id="3_pap1w"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_00rqk"]
+height = 1.45
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ccsej"]
+
+[node name="PlayerBase" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_ccsej")
+
+[node name="Faye" parent="." instance=ExtResource("2_4on5i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="Skeleton3D" parent="Faye/Armature" index="0"]
+bones/0/rotation = Quaternion(0.999988, 1.1207595e-07, 2.2893844e-05, 0.0048946044)
+bones/1/position = Vector3(2.420915e-07, 5.0836625e-05, -0.0051921825)
+bones/4/rotation = Quaternion(-0.05144512, 1.5439472e-06, -8.643332e-08, 0.9986758)
+bones/6/rotation = Quaternion(-0.6446553, -0.13765027, 0.75057274, -0.045963775)
+bones/7/rotation = Quaternion(0.034774445, 0.27405703, 0.21362084, 0.937043)
+bones/13/rotation = Quaternion(0.64666384, -0.11243707, 0.75361866, 0.035254218)
+bones/14/rotation = Quaternion(0.034774516, -0.27405697, -0.21362086, 0.9370431)
+bones/16/rotation = Quaternion(0.019394148, 0.83535856, 0.43462732, -0.33600482)
+bones/20/rotation = Quaternion(0.99437594, 0.014573155, 0.01381951, 0.103986844)
+bones/21/rotation = Quaternion(-1.6168835e-08, 0.97769207, 0.21004346, 7.526127e-08)
+bones/23/rotation = Quaternion(0.9944959, -0.020005617, -0.02141888, 0.10059257)
+bones/24/rotation = Quaternion(-1.585975e-08, 0.97823256, 0.20751205, 7.476447e-08)
+bones/29/rotation = Quaternion(0.1368279, 9.0473335e-08, -2.9242985e-06, 0.9905949)
+bones/30/rotation = Quaternion(-0.09919261, 1.8382362e-06, 2.7568626e-06, 0.99506825)
+bones/35/rotation = Quaternion(0.037883066, 2.0167502e-06, 7.472224e-08, 0.99928224)
+bones/37/rotation = Quaternion(0.004825896, -0.0008145757, 0.16179068, 0.98681295)
+bones/38/position = Vector3(8.845728e-06, 0.00062910997, -0.0005599974)
+bones/38/rotation = Quaternion(0.1368213, -4.7636127e-07, 4.381091e-06, 0.9905958)
+bones/39/rotation = Quaternion(-0.099186, 2.0370358e-06, -4.653709e-06, 0.9950689)
+bones/44/rotation = Quaternion(0.037883066, 2.0171353e-06, 7.6423376e-08, 0.99928224)
+
+[node name="BlobShadow" type="Sprite3D" parent="Faye"]
+transform = Transform3D(0.25, 0, 0, 0, -1.0927847e-08, -0.5, 0, 0.25, -2.1855694e-08, 0, 0, 0)
+texture = ExtResource("3_pap1w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27499998, 0)
+shape = SubResource("CapsuleShape3D_00rqk")
+
+[node name="CameraPivot" type="Node3D" parent="."]
+
+[node name="CameraSpringArm" type="SpringArm3D" parent="CameraPivot"]
+shape = SubResource("SphereShape3D_ccsej")
+spring_length = 5.0
+
+[node name="CameraDestination" type="Node3D" parent="CameraPivot/CameraSpringArm"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.25)
+
+[node name="CameraTarget" type="Node3D" parent="."]
+
+[editable path="Faye"]
