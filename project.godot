@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="game17g"
+config/name="Godot3rdPersonTemplate"
 run/main_scene="uid://b0h0epuijwrl0"
 config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
