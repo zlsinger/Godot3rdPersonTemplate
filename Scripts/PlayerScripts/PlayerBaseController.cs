@@ -6,7 +6,7 @@ public partial class PlayerBaseController : CharacterBody3D
 {
 // Editor exposed variables
 	[Export] public int PlayerID = 0;
-	[Export] public float Speed = 10.0f;
+	[Export] public float Speed = 5.0f;
 	[Export] public float JumpVelocity = 15.0f;
 	[Export] public float JumpDecrement = 0.5f;
 	[Export] public float MaxFallSpeed = -100.0f;
