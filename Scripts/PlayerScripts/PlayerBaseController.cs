@@ -27,19 +27,19 @@ public partial class PlayerBaseController : CharacterBody3D
 	private Vector2 movementInputVectorRaw;
 
 // Input strings
-	private StringName InputJump;
-	private StringName InputMoveLeft;
-	private StringName InputMoveRight;
-	private StringName InputMoveUp;
-	private StringName InputMoveDown;
-	private StringName InputCameraDown;
-	private StringName InputCameraUp;
-	private StringName InputCameraRight;
-	private StringName InputCameraLeft;
-	private StringName InputOptionUp;
-	private StringName InputOptionDown;
-	private StringName InputOptionLeft;
-	private StringName InputOptionRight;
+	private static StringName InputJump;
+	private static StringName InputMoveLeft;
+	private static StringName InputMoveRight;
+	private static StringName InputMoveUp;
+	private static StringName InputMoveDown;
+	private static StringName InputCameraDown;
+	private static StringName InputCameraUp;
+	private static StringName InputCameraRight;
+	private static StringName InputCameraLeft;
+	private static StringName InputOptionUp;
+	private static StringName InputOptionDown;
+	private static StringName InputOptionLeft;
+	private static StringName InputOptionRight;
 
 // STATIC VARIABLES
 	private static float CameraRotateToLookUpLimit = -70.0f;
