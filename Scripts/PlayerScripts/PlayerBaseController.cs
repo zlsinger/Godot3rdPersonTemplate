@@ -7,6 +7,8 @@ public partial class PlayerBaseController : CharacterBody3D
 // Editor exposed variables
 	[Export] public int PlayerID = 0;
 	[Export] public float Speed = 5.0f;
+	[Export] public float SlowDownSpeedGround = 5.0f;
+	[Export] public float SlowDownSpeedAir = 0.01f;
 	[Export] public float JumpVelocity = 15.0f;
 	[Export] public float JumpDecrement = 0.5f;
 	[Export] public float MaxFallSpeed = -100.0f;
@@ -202,8 +204,9 @@ public partial class PlayerBaseController : CharacterBody3D
 		}
 		else if (Velocity != Vector3.Zero)
 		{
-			calculatedVelocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
-			calculatedVelocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed);
+			float slowDownSpeed = CurrentPlayerMovementState == PlayerMovementState.grounded ? SlowDownSpeedGround : SlowDownSpeedAir;
+			calculatedVelocity.X = Mathf.MoveToward(Velocity.X, 0, slowDownSpeed);
+			calculatedVelocity.Z = Mathf.MoveToward(Velocity.Z, 0, slowDownSpeed);
 		}
 	}
 
