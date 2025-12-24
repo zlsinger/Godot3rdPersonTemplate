@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxwor3j5vmivu"]
+
+[ext_resource type="Script" uid="uid://qrtwgmibgr2i" path="res://Scripts/Level/KillTrigger.cs" id="1_e7s12"]
+[ext_resource type="Material" uid="uid://qff3n17x7tck" path="res://Materials/Levels/PitchBlack.tres" id="2_byyg6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nvm7r"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_e7s12"]
+
+[node name="KillTrigger" type="Node3D"]
+
+[node name="TriggerArea" type="Area3D" parent="."]
+collision_mask = 3
+script = ExtResource("1_e7s12")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerArea"]
+shape = SubResource("BoxShape3D_nvm7r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_byyg6")
+mesh = SubResource("BoxMesh_e7s12")
+
+[connection signal="body_entered" from="TriggerArea" to="TriggerArea" method="_on_body_entered"]

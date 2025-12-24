@@ -4,7 +4,7 @@ using System;
 public partial class GameManager : Node
 {
 	public static GameManager Instance;
-	public Node CurrentScene;
+	public static LevelManager CurrentLevelManager; // Set in LevelManager.cs at the start of the scene
 
 	private static int NumPlayers = 1;
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://fyo8t1a77t0h"]
+[gd_scene load_steps=16 format=3 uid="uid://fyo8t1a77t0h"]
 
 [ext_resource type="Material" uid="uid://bhikha38345ql" path="res://Materials/TestMaterials/TestMat_01.tres" id="1_gqq5m"]
 [ext_resource type="Script" uid="uid://pdrlle5eeko5" path="res://Scripts/Singletons/LevelManager.cs" id="1_k37r0"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dljhskjttle4n" path="res://Prefabs/SplitscreenPrefabs/2PlayerScreen.tscn" id="3_3q0jw"]
 [ext_resource type="PackedScene" uid="uid://d222fonm78jeb" path="res://Prefabs/SplitscreenPrefabs/3PlayerScreen.tscn" id="4_glar0"]
 [ext_resource type="PackedScene" uid="uid://cjrs3kpqpp525" path="res://Prefabs/SplitscreenPrefabs/4PlayerScreen.tscn" id="5_a6lfj"]
+[ext_resource type="PackedScene" uid="uid://dxwor3j5vmivu" path="res://Prefabs/LevelPrefabs/KillTrigger.tscn" id="8_glar0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ki7gi"]
 
@@ -131,3 +132,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.859763, 3.391275, 0)
 
 [node name="PlayerStart_3" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.391275, 0)
+
+[node name="KillTrigger" parent="." instance=ExtResource("8_glar0")]
+transform = Transform3D(254.20392, 0, 0, 0, 1, 0, 0, 0, 230.18369, -1.6507597, -9.805672, -0.24023438)
