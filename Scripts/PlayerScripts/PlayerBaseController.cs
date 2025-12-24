@@ -42,6 +42,7 @@ public partial class PlayerBaseController : CharacterBody3D
 	private string InputOptionDown;
 	private string InputOptionLeft;
 	private string InputOptionRight;
+	private string InputRecenterCamera;
 
 // STATIC VARIABLES
 	private static float CameraRotateToLookUpLimit = -70.0f;
@@ -89,6 +90,7 @@ public partial class PlayerBaseController : CharacterBody3D
 		InputOptionDown = "OptionDown_" + PlayerID.ToString();
 		InputOptionLeft = "OptionLeft_" + PlayerID.ToString();
 		InputOptionRight = "OptionRight_" + PlayerID.ToString();
+		InputRecenterCamera = "RecenterCamera_" + PlayerID.ToString();
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -212,15 +214,23 @@ public partial class PlayerBaseController : CharacterBody3D
 
 	void HandleCameraInput()
 	{
-		float cameraUpDown = Input.GetAxis(InputCameraDown, InputCameraUp);
-		float cameraLeftRight = Input.GetAxis(InputCameraRight, InputCameraLeft);
+		if (Input.IsActionJustPressed(InputRecenterCamera))
+		{
+			CameraPivot.Rotation = new Vector3(CameraPivot.Rotation.X, PlayerModel.Rotation.Y + 135.0f, CameraPivot.Rotation.Z);
+			PlayerCamera.GlobalPosition = CameraDestination.GlobalPosition;
+		}
+		else
+		{
+			float cameraUpDown = Input.GetAxis(InputCameraDown, InputCameraUp);
+			float cameraLeftRight = Input.GetAxis(InputCameraRight, InputCameraLeft);
 
-		Vector3 newRotation = CameraPivot.Rotation;
-		newRotation.X += cameraUpDown * CameraSpeed;
-		newRotation.X = Mathf.Clamp(newRotation.X, Mathf.DegToRad(CameraRotateToLookUpLimit), Mathf.DegToRad(CameraRotateToLookDownLimit));
-		newRotation.Y += cameraLeftRight * CameraSpeed;
+			Vector3 newRotation = CameraPivot.Rotation;
+			newRotation.X += cameraUpDown * CameraSpeed;
+			newRotation.X = Mathf.Clamp(newRotation.X, Mathf.DegToRad(CameraRotateToLookUpLimit), Mathf.DegToRad(CameraRotateToLookDownLimit));
+			newRotation.Y += cameraLeftRight * CameraSpeed;
 
-		CameraPivot.Rotation = newRotation;
+			CameraPivot.Rotation = newRotation;
+		}
 	}
 
 	void HandleCameraLerp()
