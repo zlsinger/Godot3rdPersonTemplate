@@ -30,6 +30,10 @@ window/size/borderless=true
 
 project/assembly_name="game17g"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/func_godot/plugin.cfg")
+
 [input]
 
 ui_accept={
