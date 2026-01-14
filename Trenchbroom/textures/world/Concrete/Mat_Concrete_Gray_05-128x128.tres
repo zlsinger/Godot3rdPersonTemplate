@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://du0dfccmcrgo2"]
+
+[ext_resource type="Texture2D" uid="uid://c4fkhhtohqt7m" path="res://Trenchbroom/textures/world/Concrete/Mat_Concrete_Gray_05-128x128.png" id="1_torew"]
+
+[resource]
+albedo_texture = ExtResource("1_torew")
+metallic_specular = 0.0
+texture_filter = 2
