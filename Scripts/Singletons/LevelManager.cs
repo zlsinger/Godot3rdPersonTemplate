@@ -1,12 +1,14 @@
 using Godot;
 using System;
 
-public partial class LevelManager : Node
+public partial class LevelManager : Node3D
 {
 	[Export] private PackedScene[] PlayerScenes;
-	[Export] private Node3D[] SpawnPoints;
+	[Export] public Node3D[] SpawnPoints;
 	private int SceneIndex = 0;
 	private Node3D PlayerScene;
+	[Export] public float KillHeight = -15.0f;
+	[Export] public bool KillHeightEnabled = true;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -16,7 +18,7 @@ public partial class LevelManager : Node
 		SceneIndex = GameManager.GetNumPlayers() - 1;
 		PlayerScene = PlayerScenes[SceneIndex].Instantiate<Node3D>();
 		PlayerScene.Name = "PlayerScene";
-		GetTree().Root.AddChild(PlayerScene);
+		GetTree().CurrentScene.AddChild(PlayerScene);
 
 		SetupPlayers();
 	}
@@ -32,7 +34,6 @@ public partial class LevelManager : Node
 
 	public void ResetPlayer(PlayerBaseController player)
 	{
-		player.GlobalPosition = SpawnPoints[player.PlayerID].GlobalPosition;
-		player.Velocity = Vector3.Zero;
+		player.ResetPlayer();
 	}
 }

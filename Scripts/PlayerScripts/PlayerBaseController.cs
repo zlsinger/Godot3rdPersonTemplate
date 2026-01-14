@@ -93,6 +93,15 @@ public partial class PlayerBaseController : CharacterBody3D
 		InputRecenterCamera = "RecenterCamera_" + PlayerID.ToString();
 	}
 
+    public override void _Process(double delta)
+    {
+        base._Process(delta);
+		if (GameManager.CurrentLevelManager.KillHeightEnabled && GlobalPosition.Y <= GameManager.CurrentLevelManager.KillHeight)
+		{
+			ResetPlayer();
+		}
+    }
+
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector3 calculatedVelocity = Velocity;
@@ -116,6 +125,13 @@ public partial class PlayerBaseController : CharacterBody3D
 		Velocity = new Vector3(gradualVelocity.X, calculatedVelocity.Y, gradualVelocity.Z);
 		MoveAndSlide();
 	}
+
+	public void ResetPlayer()
+	{
+		GlobalPosition = GameManager.CurrentLevelManager.SpawnPoints[PlayerID].GlobalPosition;	
+		Velocity = Vector3.Zero;
+	}
+
 
 	void HandleJumpInput(ref Vector3 calculatedVelocity, double delta)
 	{

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://fyo8t1a77t0h"]
+[gd_scene load_steps=22 format=4 uid="uid://fyo8t1a77t0h"]
 
 [ext_resource type="Script" uid="uid://pdrlle5eeko5" path="res://Scripts/Singletons/LevelManager.cs" id="1_k37r0"]
 [ext_resource type="PackedScene" uid="uid://b23hs4trrkoq3" path="res://Prefabs/SplitscreenPrefabs/1PlayerScreen.tscn" id="2_3q0jw"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cjrs3kpqpp525" path="res://Prefabs/SplitscreenPrefabs/4PlayerScreen.tscn" id="5_a6lfj"]
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="7_a6lfj"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="8_0q0na"]
-[ext_resource type="PackedScene" uid="uid://dxwor3j5vmivu" path="res://Prefabs/LevelPrefabs/KillTrigger.tscn" id="8_glar0"]
 [ext_resource type="Material" uid="uid://bwy0wh5j3kt3m" path="res://Trenchbroom/textures/world/Grass/Grass_24-128x128.tres" id="9_g1mii"]
 [ext_resource type="Material" uid="uid://cxo43jrmgq1rw" path="res://Trenchbroom/textures/world/Dirt/Dirt_10-128x128.tres" id="10_s6pri"]
 [ext_resource type="Material" uid="uid://du0dfccmcrgo2" path="res://Trenchbroom/textures/world/Concrete/Mat_Concrete_Gray_05-128x128.tres" id="11_o12sg"]
@@ -106,9 +105,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.859763, 3.391275, 0)
 
 [node name="PlayerStart_3" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.391275, 0)
-
-[node name="KillTrigger" parent="." instance=ExtResource("8_glar0")]
-transform = Transform3D(254.20392, 0, 0, 0, 1, 0, 0, 0, 230.18369, -1.6507597, -9.805672, -0.24023438)
 
 [node name="FuncGodotMap" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.479124, 0, 0)
